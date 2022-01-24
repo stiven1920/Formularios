@@ -1,0 +1,110 @@
+@charset "UTF-8";
+
+body {
+	/*background-image: url("../imagenes/fondo.jpg");*/
+	background-image:
+		url(https://img.freepik.com/vector-gratis/estilo-acuarela-fondo-regreso-escuela_23-2148593948.jpg?size=626&ext=jpg);
+	margin: 0;
+	padding: 5px;
+}
+
+.logoPrincipal {
+	background-image: linear-gradient(200deg, #72B442 40%, #0060A6 60%);
+	height: 200px;
+	padding: 19px;
+	border-color: black;
+	border-radius: 10px;
+}
+
+.contenedor-principal {
+	margin-left: 200px;
+	margin-right: 200px;
+	background-color: white;
+	border-color: black;
+	border-radius: 10px;
+}
+
+.contenedor2 {
+	border-color: black;
+	border-radius: 10px;
+}
+
+.formulario1-central {
+	margin-left: 100px;
+	margin-right: 100px;
+	margin-bottom: 5px;
+}
+
+.radio-butons {
+	margin-left: 10px;
+	margin-right: 10px;
+	margin-bottom: 20px;
+	margin-left: 10px;
+}
+
+#enlace1 {
+	margin-left: 20px;
+	color: orange;
+}
+
+#input1 {
+	width: 35%;
+}
+
+#input2 {
+	width: 28%;
+}
+
+#input3 {
+	width: 35%;
+}
+
+#input4 {
+	width: 45%;
+}
+
+#input5 {
+	width: 25%;
+}
+
+#input6 {
+	width: 28%;
+}
+
+#input7 {
+	width: 25%;
+}
+
+#input8 {
+	width: 35%;
+}
+
+#caja1 {
+	margin-bottom: 45px;
+	float: left;
+	width: 100%;
+	height: 100px;
+	resize: none;
+	min-height: 75px;
+	outline: none;
+	resize: none;
+	border: 1px solid grey;
+}
+
+#inpt {
+	width: 50%;
+}
+
+#logoPrincipal {
+	height: 156px;
+	background-image: url("../imagenes/logotipo.jpg");
+	background-repeat: no-repeat;
+	background-position: 50% 50%;
+	position: relative;
+	border-radius: 10px;
+	
+}
+
+#mybutton {
+	margin-bottom: 45px;
+}

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<div th:replace="fragment/header :: head"></div>
+<link rel="stylesheet" th:href="@{/css/registro.css}" />
+</head>
+<body>
+	<div class="m-3" align="center">
+		<div class="card" style="width: 45rem;">
+			<div class="card-body">
+				<span class="card-title">Ingrese sus datos y guarde </span>
+				<form action="#" th:action="@{/guardarUsuario}"
+					th:object="${usuario}" method="post">
+					<div class="container">
+						<div class="row">
+							<div class="col-md-6">
+								<div class="form-group ">
+									<label for="exampleFormControlInput1">Nombre(s)</label> <input
+										required="true" type="text" class="form-control"
+										placeholder="Ingrese al menos un nombre" th:field="*{nombre}">
+									<span th:if="${#fields.hasErrors('nombre')}"
+										th:errors="*{nombre}" class="text-danger"></span>
+								</div>
+								<div class="form-group ">
+									<label for="exampleFormControlInput1">Telefono</label> <input
+										required="true" type="number" min="1000000" pattern="^[0-9]+"
+										class="form-control"
+										placeholder="Ingrese algun dato de contacto"
+										th:field="*{telefono}"> <span
+										th:if="${#fields.hasErrors('telefono')}"
+										th:errors="*{telefono}" class="text-danger"></span>
+								</div>
+								<div class="form-group ">
+									<label for="exampleFormControlInput1">Direccion</label> <input
+										required="true" type="text" class="form-control"
+										placeholder="Ingrese una direccion" th:field="*{direccion}">
+									<span th:if="${#fields.hasErrors('direccion')}"
+										th:errors="*{direccion}" class="text-danger"></span>
+								</div>
+								<div class="form-group ">
+									<label for="exampleFormControlInput1">Contrasena</label> <input
+										required="true" type="password" class="form-control"
+										placeholder="Ingrese la contrasena" th:field="*{contrasena}">
+									<span th:if="${#fields.hasErrors('contrasena')}"
+										th:errors="*{contrasena}" class="text-danger"></span>
+								</div>
+							</div>
+							<div class="col-md-6">
+								<div class="form-group ">
+									<label for="exampleFormControlInput1">Apellido(s)</label> <input
+										required="true" type="text" class="form-control"
+										placeholder="Ingrese al menos un apellido"
+										th:field="*{apellido}"> <span
+										th:if="${#fields.hasErrors('apellido')}"
+										th:errors="*{apellido}" class="text-danger"></span>
+								</div>
+								<div class="form-group ">
+									<label for="exampleFormControlInput1">Fecha de
+										nacimiento</label> <input required="true" type="date"
+										class="form-control" placeholder="Elija una fecha"
+										th:field="*{fechaNacimiento}"> <span
+										th:if="${#fields.hasErrors('fechaNacimiento')}"
+										th:errors="*{fechaNacimiento}" class="text-danger"></span>
+								</div>
+								<div class="form-group ">
+									<label for="exampleFormControlInput1">Email</label> <input
+										required="true" type="text" class="form-control"
+										id="exampleFormControlInput1"
+										placeholder="Ingrese un Email valido" th:field="*{correo}">
+									<span th:if="${#fields.hasErrors('correo')}"
+										th:errors="*{correo}" class="text-danger"></span>
+								</div>
+								<div class="form-group">
+									<label for="exampleFormControlInput1">codigo (el codigo
+										es 0000 para un usuario normal)</label> <input required="true"
+										class="form-control"
+										placeholder="Ingrese el codigo dependiendo su autoridad"
+										th:field="*{codigo}"> <span
+										th:if="${#fields.hasErrors('codigo')}" th:errors="*{codigo}"
+										class="text-danger"></span>
+								</div>
+							</div>
+						</div>
+						<span th:text="${error}" class="text-danger"></span> <span
+							th:text="${errorContrasena}" class="text-danger"></span>
+					</div>
+					<div>
+						<button class="btn btn-primary" type="submit">
+							<span>registrarse<i class="fas fa-user-plus"></i></span>
+						</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

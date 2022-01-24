@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns="http://www.thymeleaf.org">
+<head>
+<div th:replace="fragment/header :: head"></div>
+</head>
+<body>
+	<div class="mt-3" align="center">
+		<div class="card" style="width: 30rem;">
+			<div class="card-body">
+				<span class="card-title">Formularios de aprendizaje</span>
+				<form th:action="@{/guardarPreguntaUno/{id}(id=${idformu})}" th:object="${puno}" method="post">
+					<div class="form-group">
+						<label for="exampleInputEmail1">Pregunta</label>
+						<textarea class="form-control" rows="3" required="true" type="text" th:field="*{pregunta}"
+							placeholder="ingrese el texto"></textarea>
+					</div>
+					<div class="form-group">
+						<label for="exampleInputPassword1">Respuesta uno</label>
+						<input type="radio" id="opcion1" name="opcion1" th:field="*{opcion}" value="1"/>
+						<input class="form-control" required="true" type="text" th:field="*{respuestaUno}"
+							 placeholder="Escriba posible respuesta">
+					</div>
+					<div class="form-group">
+						<label for="exampleInputPassword1">Respuesta dos</label>
+						<input type="radio" id="opcion2" name="opcion2" th:field="*{opcion}" value="2"/>
+						<input class="form-control" required="true" type="text" th:field="*{respuestaDos}" 
+							 placeholder="Escriba posible respuesta">
+					</div>
+					<div class="form-group">
+						<label for="exampleInputPassword1">Respuesta tres</label>
+						<input type="radio" id="opcion3" name="opcion3" th:field="*{opcion}" value="3"/>
+						<input class="form-control" required="true" type="text" th:field="*{respuestaTres}"
+							 placeholder="Escriba posible respuesta">
+					</div>
+					<span class="text-danger" th:text="${error}"></span>
+					<button type="submit" class="btn btn-primary">
+						guardar pregunta siguiente <i class="fas fa-plus-circle" ></i>
+					</button>
+				</form>
+			</div>
+		</div>
+	</div>
+	<div th:replace="fragment/footer :: foo"></div>
+</body>
+</html>
