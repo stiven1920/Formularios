@@ -9,6 +9,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Transient;
 
 @Entity
@@ -39,6 +40,8 @@ public class PreguntaUno implements Serializable {
 	
 	@OneToMany(mappedBy = "preguntaUnoBean", cascade = CascadeType.REMOVE)
 	private List<Formulario> formulario;
+	
+	
 
 	public PreguntaUno() {
 		this.respuestaUnov = false;
@@ -110,12 +113,12 @@ public class PreguntaUno implements Serializable {
 	public void setRespuestaTresv(Boolean respuestaTresv) {
 		this.respuestaTresv = respuestaTresv;
 	}
-
+	
 	public List<Formulario> getFormulario() {
 		return formulario;
 	}
 
-	public void setFormularios(List<Formulario> formulario) {
+	public void setFormulario(List<Formulario> formulario) {
 		this.formulario = formulario;
 	}
 

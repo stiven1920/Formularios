@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Lista de formularios</title>
+<div th:replace="fragment/header :: head"></div>
+</head>
+<body>
+
+<div th:replace="fragment/navbarUsuario :: navbarMenuUsuario"></div>
+
+	<br>
+		<h2 th:if="${list.isEmpty()}">No hay Preguntas para mostrar</h2>
+		<div class="ml-5 mr-5" style="background-color: #eee;" th:if="${!list.isEmpty()}">
+			<table class="table">
+				<thead>
+					<tr>
+						<th>id Pregunta</th>
+						<th>Nombre Pregunta</th>
+						<th>Accion</th>
+						<th></th>
+						<th></th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="pre : ${list}">
+						<td th:text="${pre.id}">
+					    <td th:text="${pre.preguntaUnoBean.pregunta}">
+						<td><a class="btn btn-primary"
+							th:href="@{/ResponderFormulario}">Intentar Resolver</a></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+</body>
+</html>

@@ -1,0 +1,10 @@
+package com.example.funda.repositorio;
+
+import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Repository;
+
+import com.example.funda.modelo.RespuestaUno;
+
+@Repository
+public interface RespuestaUnoDao extends CrudRepository< RespuestaUno, Integer> {
+}

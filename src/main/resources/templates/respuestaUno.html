@@ -4,7 +4,7 @@
 <div th:replace="fragment/header :: head"></div>
 
 <link th:href="@{../static/css/Formularios.css}" rel="stylesheet"
-	type="text/css"  media="all">
+	type="text/css" media="all">
 </head>
 <body
 	style="background: url('https://img.freepik.com/vector-gratis/estilo-acuarela-fondo-regreso-escuela_23-2148593948.jpg?size=626&ext=jpg');">
@@ -12,18 +12,17 @@
 	<div class="mt-5" align="center">
 		<div class="card" style="width: 80%;">
 			<div class="card-body">
-
-				
+			
 
 					<span class="card-title ">Formularios de aprendizaje</span>
-					<form th:action="@{/guardarPreguntaUno/{id}(id=${idformu})}"
-						th:object="${puno}" method="post">
+					<form th:action="@{/guardarRespuestaUno/{id}(id=${iduser})}"
+						th:object="${runo}" method="post">
 						<div class="form-group">
 							<label for="exampleInputEmail1" class="pull-left mt-5">Pregunta</label>
 							<textarea class="form-control" rows="3" required="true"
-								type="text" th:field="*{pregunta}"
+								type="text"
 								placeholder="ingrese el texto"
-								style="outline: none; resize: none; border: 1px solid grey;"></textarea>
+								style="outline: none; resize: none; border: 1px solid grey;" th:text="${puno.pregunta}" disabled></textarea>
 						</div>
 						<div class="form-group">
 							<div class="pull-left">
@@ -32,8 +31,7 @@
 									th:field="*{opcion}" value="1" />
 							</div>
 							<input class="form-control " required="true" type="text"
-								th:field="*{respuestaUno}"
-								placeholder="Escriba posible respuesta">
+								placeholder="Escriba posible respuesta" th:value="${puno.respuestaUno}" disabled>
 						</div>
 						<div class="form-group">
 							<div class="pull-left">
@@ -42,8 +40,7 @@
 									value="2" />
 							</div>
 							<input class="form-control" required="true" type="text"
-								th:field="*{respuestaDos}"
-								placeholder="Escriba posible respuesta">
+								placeholder="Escriba posible respuesta" th:value="${puno.respuestaDos}" disabled>
 						</div>
 						<div class="form-group">
 							<div class="pull-left">
@@ -52,12 +49,11 @@
 									value="3" />
 							</div>
 							<input class="form-control" required="true" type="text"
-								th:field="*{respuestaTres}"
-								placeholder="Escriba posible respuesta">
+								placeholder="Escriba posible respuesta" th:value="${puno.respuestaTres}" disabled>
 						</div>
 						<span class="text-danger" th:text="${error}"></span>
 						<button type="submit" class="btn btn-primary">
-							guardar pregunta siguiente <i class="fas fa-plus-circle"></i>
+							guardar pregunta siguiente  <i class="fas fa-plus-circle"></i>
 						</button>
 					</form>
 				</div>

@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
@@ -50,9 +51,9 @@ public class PreguntaControlador {
 				}
 				System.out.println("idFormu = "+id);
 				Formulario formu = daoFormulario.findById(id).get();
-				List<Formulario> lis = new ArrayList<>();
+				List<Formulario> lis = new ArrayList<Formulario>();
 				lis.add(formu);
-				puno.setFormularios(lis);
+				puno.setFormulario(lis);
 				daoPreguntaUno.save(puno);
 			} catch (Exception e) {
 				System.out.println(e.getMessage());
@@ -61,6 +62,13 @@ public class PreguntaControlador {
 			}
 		}
 		return "redirect:/menu";
+	}
+	
+	@GetMapping("/listFormulario")
+	public String listAeronave(Model model) {
+		model.addAttribute("list", daoFormulario.findAll());
+		return "listaPreguntas";
+		
 	}
 	
 }

@@ -73,7 +73,6 @@ public class UsuarioController {
 		UserDetails user = userAutenticado.getAuth();
 		for (GrantedAuthority grantedAuthority : user.getAuthorities()) {
 			if (grantedAuthority.getAuthority().equals("ROLE_USER")) {
-				model.addAttribute("formularios", formularioDao.findAll());
 				url = "menu";
 			} else if (grantedAuthority.getAuthority().equals("ROLE_ADMIN")) {
 				url = "Admin";

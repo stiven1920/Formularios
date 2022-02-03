@@ -10,6 +10,4 @@ import com.example.funda.modelo.Formulario;
 
 @Repository
 public interface FormularioDao extends CrudRepository<Formulario, Integer> {
-	@Query(value = "select * from Usuario u join Formulario", nativeQuery = true)
-	List<Formulario> getAll();
 }
