@@ -1,0 +1,11 @@
+.caja{
+	width: 100px;
+	height: 100px;
+	border: 1px solid black;
+}
+
+.opcion{
+	width: 160px;
+	height: 100px;
+	margin-bottom: 50px;
+}

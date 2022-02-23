@@ -15,11 +15,17 @@
 			</button>
 			<div class="collapse navbar-collapse" id="navbarSupportedContent">
 				<ul class="navbar-nav mr-auto">
-					<li class="nav-item  active"><a class="nav-link "
-						role="button" aria-haspopup="true" aria-expanded="false" th:href="@{/crearFormulario}">crear formulario</a>
+					<li class="nav-item active dropdown">
+						<a class="nav-link dropdown-toggle" id="navbarDropdown" role="button"
+						data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">formulario</a>
+						<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+							<a class="dropdown-item" th:href="@{/crearFormulario/0}">crear formulario</a>
+          					<div class="dropdown-divider"></div>
+          					<a class="dropdown-item" th:href="@{/crearFormulario/1}">crear formulario conocimientos basicos</a>
+						</div>
 					</li>
-					<li class="nav-item active dropdown"><a
-						class="nav-link dropdown-toggle" id="navbarDropdown" role="button"
+					<li class="nav-item active dropdown">
+						<a class="nav-link dropdown-toggle" id="navbarDropdown" role="button"
 						data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">perfil</a>
 						<div class="dropdown-menu" aria-labelledby="navbarDropdown">
 							<div class="dropdown-divider"></div>

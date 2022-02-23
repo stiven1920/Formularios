@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html xmlns="http://www.thymeleaf.org">
+<head>
+	<div th:replace="fragment/header :: head"></div>
+	<link th:href="@{../static/css/Formularios.css}" rel="stylesheet" type="text/css" media="all">
+	<link th:href="@{/css/respuestaDos.css}" rel="stylesheet" type="text/css" media="all">
+</head>
+<body
+	style="background: url('https://img.freepik.com/vector-gratis/estilo-acuarela-fondo-regreso-escuela_23-2148593948.jpg?size=626&ext=jpg');">
+	<div class="mt-5" align="center">
+		<div class="card" style="width: 80%;">
+			<div class="card-body mb-4">
+				<h2 class="card-title mb-5 mt-3">Formularios de aprendizaje</h2>
+				<form th:action="@{/guardarRespuestaDos/{id}(id=${idPdos})}" th:object="${rdos}" method="post">
+					<div class="container">
+						<div class="form-group mb-4" style="margin-bottom: 10px;">
+							<label for="exampleInputEmail1" class="pull-left mb-2"><h4>Informacion</h4></label>
+							<br>
+							<label for="exampleInputEmail1" class="pull-left mt-2 mb-5" th:text="${pdos.informacion}"></label>
+							<input class="mt-2" type="text" th:field="*{ru}" id="ru" hidden>
+							<input type="text" th:field="*{rd}" id="rd" hidden>
+							<input type="text" th:field="*{rt}" id="rt" hidden>
+						</div>
+						<br>
+						<div class="row  mt-4">
+							<div class="col-lg-4 col-md-4 col-sm-4">
+								<div class="form-group">
+									<div class="cajai" id="caja1" style="margin-right: 50px;">
+										<img class='opcion'
+											th:src="'data:image/jpeg;base64,' + ${imgUtil.getImgData(pdos.respuestaUno)}" id="1"/>
+										<img class='opcion '
+											th:src="'data:image/jpeg;base64,' + ${imgUtil.getImgData(pdos.respuestaDos)}" id="2"/>
+										<img class='opcion '
+											th:src="'data:image/jpeg;base64,' + ${imgUtil.getImgData(pdos.respuestaTres)}" id="3"/>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-6">
+								<div class="form-group">
+									<input class="form-control" required="true" type="text"
+										th:value="${pdos.mPreguntaUno}" disabled>
+									<div class="caja mt-3" id="caja2">
+
+									</div>
+								</div>
+								<div class="form-group">
+									<input class="form-control" required="true" type="text"
+										th:value="${pdos.mPreguntaDos}" disabled>
+									<div class="caja mt-3" id="caja3">
+
+									</div>
+								</div>
+								<div class="form-group">
+									<input class="form-control" required="true" type="text"
+										th:value="${pdos.mPreguntaTres}" disabled>
+									<div class="caja mt-3" id="caja4">
+
+									</div>
+								</div>
+							</div>
+						</div>
+						<span class="text-danger" th:text="${error}"></span>
+					</div>
+					<br>
+					<button type="submit" class="btn btn-primary mb-3">
+						responder pregunta <i class="fas fa-plus-circle"></i>
+					</button>
+					
+				</form>
+			</div>
+		</div>
+	</div>
+	<div th:replace="fragment/footer :: foo"></div>
+	<script src="js/drapDrop.js" th:src="@{/js/drapDrop.js}"></script>
+</body>
+</html>

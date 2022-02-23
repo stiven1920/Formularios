@@ -37,11 +37,6 @@ public class PreguntaUno implements Serializable {
 	
 	@Transient
 	private int opcion;
-	
-	@OneToMany(mappedBy = "preguntaUnoBean", cascade = CascadeType.REMOVE)
-	private List<Formulario> formulario;
-	
-	
 
 	public PreguntaUno() {
 		this.respuestaUnov = false;
@@ -113,14 +108,6 @@ public class PreguntaUno implements Serializable {
 	public void setRespuestaTresv(Boolean respuestaTresv) {
 		this.respuestaTresv = respuestaTresv;
 	}
-	
-	public List<Formulario> getFormulario() {
-		return formulario;
-	}
-
-	public void setFormulario(List<Formulario> formulario) {
-		this.formulario = formulario;
-	}
 
 	public int getOpcion() {
 		return opcion;
@@ -128,5 +115,13 @@ public class PreguntaUno implements Serializable {
 
 	public void setOpcion(int opcion) {
 		this.opcion = opcion;
+	}
+
+	@Override
+	public String toString() {
+		return "PreguntaUno [id=" + id + ", pregunta=" + pregunta + ", respuestaUno=" + respuestaUno
+				+ ", respuestaUnov=" + respuestaUnov + ", respuestaDos=" + respuestaDos + ", respuestaDosv="
+				+ respuestaDosv + ", respuestaTres=" + respuestaTres + ", respuestaTresv=" + respuestaTresv
+				+ ", opcion=" + opcion + "]";
 	}
 }

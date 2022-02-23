@@ -10,8 +10,8 @@
 <link rel="stylesheet" href="../static/css/login.css">
 </head>
 <body>
-	<div class="mt-3" align="center">
-		<div class="card" style="width: 22rem;">
+	<div class="mt-3" align="center" style="margin-top: 50%;">
+		<div class="card mt-5" style="width: 22rem; ">
 			<div class="card-body">
 				<span class="card-title">Llene los campos con sus datos para ingresar</span>
 				<form th:action="@{/login}" method="post">
@@ -28,9 +28,10 @@
 						<input type="checkbox" class="form-check-input">
 						<label class="form-check-label" for="exampleCheck1">Recuerdame</label>
 					</div>
-					<button type="submit" class="btn btn-primary">
-						Ingresar<i class="fas fa-sign-in-alt"></i>
+					<button type="submit" class="btn btn-primary mb-3">
+						Ingresar <i class="fas fa-sign-in-alt"></i>
 					</button>
+					<br>
 				</form>
 				<div th:if="${param.error}" class="alert alert-danger" role="alert">
 					contraseña y correo incorrectos.</div>

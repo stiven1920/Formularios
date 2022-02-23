@@ -1,68 +1,54 @@
 <!DOCTYPE html>
 <html xmlns="http://www.thymeleaf.org">
 <head>
-<div th:replace="fragment/header :: head"></div>
-
-<link th:href="@{../static/css/Formularios.css}" rel="stylesheet"
-	type="text/css"  media="all">
+	<div th:replace="fragment/header :: head"></div>
+	<link th:href="@{../static/css/Formularios.css}" rel="stylesheet" type="text/css" media="all">
 </head>
-<body
-	style="background: url('https://img.freepik.com/vector-gratis/estilo-acuarela-fondo-regreso-escuela_23-2148593948.jpg?size=626&ext=jpg');">
-
+<body style="background: url('https://img.freepik.com/vector-gratis/estilo-acuarela-fondo-regreso-escuela_23-2148593948.jpg?size=626&ext=jpg');">
 	<div class="mt-5" align="center">
 		<div class="card" style="width: 80%;">
 			<div class="card-body">
-
-				
-
-					<span class="card-title ">Formularios de aprendizaje</span>
-					<form th:action="@{/guardarPreguntaUno/{id}(id=${idformu})}"
-						th:object="${puno}" method="post">
-						<div class="form-group">
-							<label for="exampleInputEmail1" class="pull-left mt-5">Pregunta</label>
-							<textarea class="form-control" rows="3" required="true"
-								type="text" th:field="*{pregunta}"
-								placeholder="ingrese el texto"
-								style="outline: none; resize: none; border: 1px solid grey;"></textarea>
+				<span class="card-title ">Formularios de aprendizaje</span>
+				<form th:action="@{/guardarPreguntaUno/{id}(id=${idformu})}" th:object="${puno}" method="post">
+					<div class="form-group">
+						<label for="exampleInputEmail1" class="pull-left mt-5">Pregunta</label>
+						<textarea class="form-control" rows="3" required="true" type="text" th:field="*{pregunta}"
+							placeholder="ingrese el texto"
+							style="outline: none; resize: none; border: 1px solid grey;"></textarea>
+					</div>
+					<div class="form-group">
+						<div class="pull-left">
+							<label for="exampleInputPassword1" style="text-align: left;">Respuesta
+								uno</label> <input type="radio" id="opcion1" name="opcion1" th:field="*{opcion}"
+								value="1" />
 						</div>
-						<div class="form-group">
-							<div class="pull-left">
-								<label for="exampleInputPassword1" style="text-align: left;">Respuesta
-									uno</label> <input type="radio" id="opcion1" name="opcion1"
-									th:field="*{opcion}" value="1" />
-							</div>
-							<input class="form-control " required="true" type="text"
-								th:field="*{respuestaUno}"
-								placeholder="Escriba posible respuesta">
+						<input class="form-control " required="true" type="text" th:field="*{respuestaUno}"
+							placeholder="Escriba posible respuesta">
+					</div>
+					<div class="form-group">
+						<div class="pull-left">
+							<label for="exampleInputPassword1">Respuesta dos</label> <input type="radio" id="opcion2"
+								name="opcion2" th:field="*{opcion}" value="2" />
 						</div>
-						<div class="form-group">
-							<div class="pull-left">
-								<label for="exampleInputPassword1">Respuesta dos</label> <input
-									type="radio" id="opcion2" name="opcion2" th:field="*{opcion}"
-									value="2" />
-							</div>
-							<input class="form-control" required="true" type="text"
-								th:field="*{respuestaDos}"
-								placeholder="Escriba posible respuesta">
+						<input class="form-control" required="true" type="text" th:field="*{respuestaDos}"
+							placeholder="Escriba posible respuesta">
+					</div>
+					<div class="form-group">
+						<div class="pull-left">
+							<label for="exampleInputPassword1">Respuesta tres</label> <input type="radio" id="opcion3"
+								name="opcion3" th:field="*{opcion}" value="3" />
 						</div>
-						<div class="form-group">
-							<div class="pull-left">
-								<label for="exampleInputPassword1">Respuesta tres</label> <input
-									type="radio" id="opcion3" name="opcion3" th:field="*{opcion}"
-									value="3" />
-							</div>
-							<input class="form-control" required="true" type="text"
-								th:field="*{respuestaTres}"
-								placeholder="Escriba posible respuesta">
-						</div>
-						<span class="text-danger" th:text="${error}"></span>
-						<button type="submit" class="btn btn-primary">
-							guardar pregunta siguiente <i class="fas fa-plus-circle"></i>
-						</button>
-					</form>
-				</div>
+						<input class="form-control" required="true" type="text" th:field="*{respuestaTres}"
+							placeholder="Escriba posible respuesta">
+					</div>
+					<span class="text-danger" th:text="${error}"></span>
+					<button type="submit" class="btn btn-primary">
+						guardar pregunta siguiente <i class="fas fa-plus-circle"></i>
+					</button>
+				</form>
 			</div>
 		</div>
-		<div th:replace="fragment/footer :: foo"></div>
+	</div>
+	<div th:replace="fragment/footer :: foo"></div>
 </body>
 </html>

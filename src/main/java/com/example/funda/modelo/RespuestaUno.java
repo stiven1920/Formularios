@@ -31,6 +31,12 @@ public class RespuestaUno implements Serializable{
 	
 	@ManyToOne
 	private Usuario usuario;
+	
+	@ManyToOne
+	private Formulario formulario;
+	
+	@ManyToOne
+	private PreguntaUno preguntaUno;
 
 	public RespuestaUno() {
 		super();
@@ -75,4 +81,27 @@ public class RespuestaUno implements Serializable{
 	public void setUsuario(Usuario usuario) {
 		this.usuario = usuario;
 	}
+
+	public Formulario getFormulario() {
+		return formulario;
+	}
+
+	public void setFormulario(Formulario formulario) {
+		this.formulario = formulario;
+	}
+
+	public PreguntaUno getPreguntaUno() {
+		return preguntaUno;
+	}
+
+	public void setPreguntaUno(PreguntaUno preguntaUno) {
+		this.preguntaUno = preguntaUno;
+	}
+
+	@Override
+	public String toString() {
+		return "RespuestaUno [id=" + id + ", respuesta=" + respuesta + ", resultado=" + resultado + ", opcion=" + opcion
+				+ ", usuario=" + usuario + ", formulario=" + formulario + ", preguntaUno=" + preguntaUno + "]";
+	}
+	
 }

@@ -12,10 +12,8 @@
 	<div class="mt-5" align="center">
 		<div class="card" style="width: 80%;">
 			<div class="card-body">
-			
-
 					<span class="card-title ">Formularios de aprendizaje</span>
-					<form th:action="@{/guardarRespuestaUno/{id}(id=${iduser})}"
+					<form th:action="@{/guardarRespuestaUno/{idt}(idt=${idPuno})}"
 						th:object="${runo}" method="post">
 						<div class="form-group">
 							<label for="exampleInputEmail1" class="pull-left mt-5">Pregunta</label>

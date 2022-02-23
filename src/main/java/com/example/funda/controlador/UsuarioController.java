@@ -12,10 +12,12 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.example.funda.modelo.Administrador;
 import com.example.funda.modelo.Authority;
+import com.example.funda.modelo.Formulario;
 import com.example.funda.modelo.Usuario;
 import com.example.funda.repositorio.AdministradorDao;
 import com.example.funda.repositorio.AuthorityDao;
@@ -73,6 +75,27 @@ public class UsuarioController {
 		UserDetails user = userAutenticado.getAuth();
 		for (GrantedAuthority grantedAuthority : user.getAuthorities()) {
 			if (grantedAuthority.getAuthority().equals("ROLE_USER")) {
+				Formulario fo=  formularioDao.findByPrevios(true);
+				if (fo != null) {
+					url = "redirect:/ResponderFormulario/1";
+				}else {
+					url = "menu";
+				}
+			} else if (grantedAuthority.getAuthority().equals("ROLE_ADMIN")) {
+				url = "Admin";
+			}
+		}
+		return url;
+	}
+	
+	@GetMapping("/menu/{opcion}")
+	public String menu(Model model,@PathVariable("opcion") int opcion) {
+		System.out.print("menuniar");
+		String url = "";
+		UserDetails user = userAutenticado.getAuth();
+		for (GrantedAuthority grantedAuthority : user.getAuthorities()) {
+			if (grantedAuthority.getAuthority().equals("ROLE_USER")) {
+				Formulario fo=  formularioDao.findByPrevios(true);
 				url = "menu";
 			} else if (grantedAuthority.getAuthority().equals("ROLE_ADMIN")) {
 				url = "Admin";
